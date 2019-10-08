@@ -2,9 +2,13 @@
 database
 web
 
+[all:vars]
+[database:vars]
+
+
 [database]
-192.168.
-ansible-remote_user=itescia1
+192.168.35.130
+ansible_user=itescia1
 
 [web]
-192.168.
+192.168.35.131
