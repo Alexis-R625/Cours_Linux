@@ -1,9 +1,0 @@
----
-- name: Installation des packages
-    package:
-    name: htop
-    state: present
-- name: Installation des packages 2
-    package:
-    name: ntpdate
-    state: present

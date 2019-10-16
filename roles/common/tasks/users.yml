@@ -10,13 +10,20 @@
     name: itesciadmin
     home: /home/itesciadmin
     uid: 1001
-    group: itesciadmin
+    # group: itesciadmin
     groups: itescia, sudo
     password: ''
     state: present
 
-- name: authorized key
-  authorized key:
-    user: itesciadmin
-    key: 'ssh-rsa root@srv1:/home/itescia1/Cours_Linux# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxK5xeiTw6bdN+vSG98T+BT7lUEt3XNQGSoKsN8pC0gzGkQAPj/WzQL5uw2gkpjrX6Sh3wDsCqQm/HQWE8dIS9FBmusi2h3XwL3JrWV1CFDz5yo9CmfFfue4UWr4RUdWjoBFGYybWQkoy9zJruj+qoBs4huJFLeOjzw2ox+tb1zRSe0L+oJ727hG8IK1YwgLw+TErgcPvCY7E3o9iTWAd1LcASeFPpXLSO4sEKnKbaQu0fxW7EaTn3bJJxgqTq774Dw2xnfwztnfV0928IkhgEIShcJirotqCDY8H5cfBsJRKhZC19KjSCyeoxzqC/ix+Q/6AVpnHFqoEeqmLjgHGD root@srv1
-    state: present
+# - name: authorized key
+  # authorized key:
+    # user: itesciadmin
+    # key: 'ssh-rsa root@srv1:/home/itescia1/Cours_Linux# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxK5xeiTw6bdN+vSG98T+BT7lUEt3XNQGSoKsN8pC0gzGkQAPj/WzQL5uw2gkpjrX6Sh3wDsCqQm/HQWE8dIS9FBmusi2h3XwL3JrWV1CFDz5yo9CmfFfue4UWr4RUdWjoBFGYybWQkoy9zJruj+qoBs4huJFLeOjzw2ox+tb1zRSe0L+oJ727hG8IK1YwgLw+TErgcPvCY7E3o9iTWAd1LcASeFPpXLSO4sEKnKbaQu0fxW7EaTn3bJJxgqTq774Dw2xnfwztnfV0928IkhgEIShcJirotqCDY8H5cfBsJRKhZC19KjSCyeoxzqC/ix+Q/6AVpnHFqoEeqmLjgHGD root@srv1'
+    # state: present
+    
+- name: Création d'un utilisateur
+  user:
+    name: "{{item.name}}"
+    password: "{{item.password}}"
+    createhome: yes
+  loop: "{{users}}"
