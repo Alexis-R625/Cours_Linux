@@ -7,9 +7,14 @@ ansible_user=root
 ansible_python_interpreter=/usr/bin/python3
 
 [database]
-192.168.35.130
-
+#old
+#192.168.35.130
+#new
+172.17.31.27
 [database:vars]
 
 [web]
-192.168.35.131
+#old
+#192.168.35.131
+#new
+172.17.31.27
